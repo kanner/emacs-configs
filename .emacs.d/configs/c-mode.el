@@ -56,9 +56,10 @@
           (lambda ()
             (let ((filename (buffer-file-name)))
               ;; Enable kernel mode for the appropriate files
-              (when (and filename
-                         (string-match (expand-file-name "~/projects/linux")
-                                       filename))
+		(when (and filename
+                         (or (string-match (expand-file-name "~/projects/linux") filename)
+		                  (string-match (expand-file-name "/usr/src/linux") filename)
+		))
                 (setq indent-tabs-mode t)
                 (setq show-trailing-whitespace t)
                 (c-set-style "linux-tabs-only")))))
