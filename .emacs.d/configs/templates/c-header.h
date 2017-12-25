@@ -8,9 +8,9 @@
  *
  */
 
-#include <stdio.h>
+#ifndef HHHH
+#define HHHH
 
-int main(int argc, char **argv) {
+int func(void);
 
-	return 0;
-}
+#endif // HHHH

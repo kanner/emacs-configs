@@ -1,7 +1,3 @@
-;;------------------------------------------------------------------------------
-;; spell settings
-;;------------------------------------------------------------------------------
-
 (message "applying spell settings ...")
 
 (setq ispell-local-dictionary-alist
@@ -31,7 +27,6 @@
     (message "Dictionary switched from %s to %s" dic change)))
 
 (global-set-key (kbd "<f6>") 'fd-switch-dictionary)
-
 
 ;; change mouse-2 to mouse-3 for correcting words in flyspell
 (add-hook 'flyspell-mode-hook

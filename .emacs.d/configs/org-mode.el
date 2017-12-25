@@ -1,7 +1,3 @@
-;;------------------------------------------------------------------------------
-;; Org-Mode
-;;------------------------------------------------------------------------------
-
 (message "applying org-mode settings ...")
 
 (require 'org-macs)
@@ -9,7 +5,7 @@
 (require 'remember)
 
 ;; folder where all the notes are
-(setq org-main-directory "~/Notizen/")
+(setq org-main-directory `,(expand-file-name (concat custom-basedir "org-notes")))
 
 ;; hide the stars
 (setq org-indent-mode-turns-on-hiding-stars t)
@@ -28,16 +24,14 @@
 (setq org-refile-use-outline-path nil)
 (setq org-refile-allow-creating-parent-nodes 'confirm)
 
-;; add modules/home/cit/Notizen/phd-journal.org
+;; add modules
 (add-to-list 'org-modules 'org-odt)
-
-;; my phd journal
-(org-remember-insinuate)
-(setq org-remember-templates
-      '(("Phd Journal" ?j "**** %T %?"
-         "/home/cit/Notizen/phd-journal.org" date-tree)))
-(global-set-key (kbd "C-c j") 'org-remember)
-
+;; phd journal
+;(org-remember-insinuate)
+;(setq org-remember-templates
+;      '(("Phd Journal" ?j "**** %T %?"
+;         "~/.emacs.d/configs/org-notes/phd-journal.org" date-tree)))
+;(global-set-key (kbd "C-c j") 'org-remember)
 
 ;; enable org-babel with the following script languages
 (org-babel-do-load-languages
@@ -58,18 +52,8 @@
 ;; set org-babel default shell to bash
 (setq org-babel-sh-command "/bin/bash")
 
-;; mobileOrg
-(setq org-directory org-main-directory)
-(setq org-mobile-directory "~/Dropbox/MobileOrg")
-(setq org-mobile-files (quote ("private.org")))
-(setq org-mobile-index-file (concat org-mobile-directory "/index.org"))
-(setq org-mobile-inbox-for-pull (concat "/flagged.org"))
-
-;;------------------------------------------------------------------------------
-;; org agenda
-;;------------------------------------------------------------------------------
-
-;; set folder where my notes life
+;; org agenda ;;
+;; set folder where my notes live
 (setq org-agenda-files (list org-main-directory))
 
 ;; don't show the done items in the agenda view
@@ -98,11 +82,8 @@
   "Fit the Org Agenda to its buffer."
   (org-fit-agenda-window))
 
-
-;;------------------------------------------------------------------------------
 ;; org latex
-;;------------------------------------------------------------------------------
-(require 'org-latex)
+;(require 'org-latex)
 
 (setq org-export-latex-listings t)
 
@@ -121,10 +102,7 @@
                "\\documentclass[conference]{sig-alternate}"
                ("\\section{%s}" . "\\section*{%s}")))
 
-;;------------------------------------------------------------------------------
-;; Development
-;;------------------------------------------------------------------------------
-
+;; development
 (defun org-insert-code-block ()
   "Insert a code block. At the prompt, enter the language which is available.
 

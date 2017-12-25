@@ -1,0 +1,11 @@
+debian8 additional extensions:
+
+autopair-20160304.437
+color-theme-20080305.34			automatic
+color-theme-solarized-20171024.825	?
+dash-20171028.854			automatic
+ido-completing-read+-20170820.3		automatic
+ido-ubiquitous-20170923.842
+memoize-20170720.1802			automatic
+s-20171102.227				automatic
+smex-1.1.1

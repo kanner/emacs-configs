@@ -1,7 +1,3 @@
-;;------------------------------------------------------------------------------
-;; LateX Mode (Auctex)
-;;------------------------------------------------------------------------------
-
 (message "applying auctex settings ...")
 
 (setq TeX-auto-save t)
@@ -11,7 +7,7 @@
 ;; set the indention level to 4 spaces
 (setq-default LaTeX-default-offset 4)
 
-;; scoll automtically with the compilation output
+;; scroll automatically with the compilation output
 (setq compilation-scroll-output t)
 
 (global-auto-revert-mode t)

@@ -1,7 +1,3 @@
-;;------------------------------------------------------------------------------
-;; general keyboard shortcuts
-;;------------------------------------------------------------------------------
-
 (message "applying keyboard shortcuts ...")
 
 (global-set-key (kbd "C-w") 'backward-kill-word)

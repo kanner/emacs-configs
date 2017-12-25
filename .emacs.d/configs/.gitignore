@@ -1,0 +1,4 @@
+backups/*
+cscope/*
+elpa/*
+smex.save

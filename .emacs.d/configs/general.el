@@ -1,7 +1,3 @@
-;;------------------------------------------------------------------------------
-;; general settings
-;;------------------------------------------------------------------------------
-
 (message "applying general settings ...")
 
 ;; disable scroll-bar tool-bar and menu-bar
@@ -99,11 +95,14 @@
 (package-initialize)
 
 ;; yasnippet
-(require 'yasnippet)
-(yas/initialize)
-(yas/load-directory (concat custom-basedir "site-lisp/snippets/"))
-(setq yas/prompt-functions '(yas/dropdown-prompt))
+;(require 'yasnippet)
+;(yas/initialize)
+;(yas/load-directory (concat custom-basedir "site-lisp/snippets/"))
+;(setq yas/prompt-functions '(yas/dropdown-prompt))
 
+;;------------------------------------------------------------------------------
+;; Some usefull things
+;;------------------------------------------------------------------------------
 ;; recent files
 (require 'recentf)
 (recentf-mode t)
@@ -156,24 +155,24 @@ of windows in the frame simply by calling this command again."
 ;; Line numbers
 ;;------------------------------------------------------------------------------
 
-;; ;; show the line number
-;; (setq line-number-mode 1)
-;; ;; (fringe-mode 0)
-;; (setq fringe-mode 1)
-;; (global-linum-mode 1)
-;; (setq linum-format "%4d ")
-;; (setq linum-Foreground "snow3")
-;; (setq linum-Background "black")
+;; show the line number
+(setq line-number-mode 1)
+;; (fringe-mode 0)
+(setq fringe-mode 1)
+(global-linum-mode 1)
+(setq linum-format "%4d ")
+(setq linum-Foreground "snow3")
+(setq linum-Background "black")
 
-;; ;; disable linum in certain major-modes
-;; (setq linum-disabled-modes-list
-;;       '(eshell-mode Man-mode recentf-mode wl-summary-mode compilation-mode term-mode package
-;;                     Dired Ibuffer org-mode Help org-agenda-mode Info-mode shell-mode comint-mode
-;;                     magit-mode Magit vc-annotate-mode help-mode magit-mode))
+;; disable linum in certain major-modes
+(setq linum-disabled-modes-list
+       '(Man-mode recentf-mode wl-summary-mode compilation-mode term-mode package
+                     Dired Ibuffer org-mode Help org-agenda-mode Info-mode shell-mode comint-mode
+                     magit-mode Magit vc-annotate-mode help-mode magit-mode))
 
-;; (defun linum-on ()
-;;   (unless (or (minibufferp) (member major-mode linum-disabled-modes-list))
-;;     (linum-mode 1)))
+(defun linum-on ()
+   (unless (or (minibufferp) (member major-mode linum-disabled-modes-list))
+     (linum-mode 1)))
 
 ;;------------------------------------------------------------------------------
 ;; Auto-complete
@@ -189,7 +188,9 @@ of windows in the frame simply by calling this command again."
 ;;------------------------------------------------------------------------------
 
 (ido-mode t)
-(ido-ubiquitous t)
+;(ido-ubiquitous t)
+(require 'ido-completing-read+)
+(ido-ubiquitous-mode 1)
 (setq ido-enable-prefix nil
       ido-enable-flex-matching t
       ido-auto-merge-work-directories-length nil
@@ -253,13 +254,13 @@ of windows in the frame simply by calling this command again."
 (setq auto-insert-directory (concat custom-basedir "templates/"))
 (setq auto-insert-query nil)(setq auto-insert-alist
       '(
-        ("\\.java$" . ["class.java" auto-update-header-file])
-        ("\\.pl$"   . ["perl.pl"])
+;        ("\\.java$" . ["class.java" auto-update-header-file])
+;        ("\\.pl$"   . ["perl.pl"])
         ("\\.org$"  . ["org-note.org"])
-        ("\\.pm$"   . ["perl-module.pm" auto-update-header-file])
+;        ("\\.pm$"   . ["perl-module.pm" auto-update-header-file])
         ("\\.c$"    . ["c-code.c"])
-        ("\\.h$"    . ["cpp-header.h" auto-update-c-source-file])
-        ("\\.mxml$" . ["flex.mxml"])
+        ("\\.h$"    . ["c-header.h" auto-update-c-source-file])
+;        ("\\.mxml$" . ["flex.mxml"])
         )
       )
 (setq auto-insert 'other)
@@ -284,7 +285,7 @@ of windows in the frame simply by calling this command again."
 	(while (search-forward "HHHH" nil t)
 	  (save-restriction
 	    (narrow-to-region (match-beginning 0) (match-end 0))
-	    (replace-match (upcase (concat (file-name-sans-extension (file-name-nondirectory buffer-file-name)) "_H")) t
+	    (replace-match (upcase (concat (file-name-sans-extension (file-name-nondirectory buffer-file-name)) "_H_")) t
 			   )
 	    ))
 	)
