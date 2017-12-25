@@ -133,6 +133,10 @@
 (setq frame-title-format "emacs [%b %*%+ %f]")
 (setq icon-title-format "emacs [%b]")
 
+;; split only horizontally
+(setq split-height-threshold nil)
+(setq split-width-threshold 80)
+
 ;; Toggle between split windows and a single window (https://gist.github.com/3383607)
 (defun toggle-windows-split()
   "Switch back and forth between one window and whatever split of

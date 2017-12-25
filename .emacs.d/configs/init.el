@@ -10,6 +10,7 @@
 (setq my-cfg-list '(
 		    "auctex.el"
 		    "c-mode.el"
+                    "cscope.el"
 		    "general.el"
 		    "kbd-hotkeys.el"
 		    "org-mode.el"

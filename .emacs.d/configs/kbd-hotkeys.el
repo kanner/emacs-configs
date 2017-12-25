@@ -71,3 +71,7 @@
 (autoload 'cycle-buffer-backward "cycle-buffer" "Cycle backward." t)
 (global-set-key [(XF86Back)] 'cycle-buffer-backward)
 (global-set-key [(XF86Forward)] 'cycle-buffer)
+
+;; make use of cscope, not ctags
+(global-set-key (kbd "M-.") 'cscope-find-global-definition-no-prompting)
+(global-set-key (kbd "M-,") 'cscope-find-this-symbol)
