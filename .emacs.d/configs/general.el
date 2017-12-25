@@ -13,10 +13,10 @@
 (server-start)
 
 ;; my email adress
-(setq user-mail-address "florian@adamsky.it")
+(setq user-mail-address "andrew.kanner@gmail.com")
 
 ;; set default browser
-(setq browse-url-generic-program "gnome-open")
+(setq browse-url-generic-program "firefox")
 
 ;; don't show so many messages on startup
 (setq inhibit-startup-message t)
